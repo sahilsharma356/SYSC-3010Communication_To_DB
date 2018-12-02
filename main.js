@@ -18,6 +18,14 @@ app.get('/getData', function(req, res){
 
 		var db = client.db("aqua");
 
+		db.posts.find({}, {_id : 1})
+    		.limit(5)
+   		    .sort({timestamp:1})
+    		.toArray()
+    		.map(function(doc) { return doc._id; });
+
+		db.posts.remove({_id: {$in: removeIdsArray}})
+
 		db.collection('posts').find().limit(1).sort({$natural:-1}).toArray(function(err, result){
 			if(err){
 				console.log(err);

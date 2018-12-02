@@ -9,4 +9,9 @@ post = {
     "waterLevel" : "2"}
 
 posts = db.posts
-posts.insert_one(post) 
+#posts.insert_one(post) 
+
+#delete
+#delete = posts.find({}).limit(2)
+#x = delete.delete_many(posts)
+#print(x.deleted_count, " documents 
